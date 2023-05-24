@@ -25,6 +25,7 @@ services:
     image: ros_in_docker/noetic:${CONTAINER_NAME:-noetic}
     user: ${USER_NAME:-user}
     network_mode: "host"
+    privileged: true
     environment:
       - DISPLAY=$DISPLAY
     volumes:

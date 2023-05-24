@@ -21,20 +21,15 @@
 # SOFTWARE.
 name: noetic
 root: ~/ros_ws/
-startup_window: editor
+startup_window: camera_calib
 tmux_command: tmux -2
 windows:
-  - build:
+  - camera_calib:
       panes:
-        - catkin build
+        - rosrun camera_calibration cameracalibrator.py --pattern chessboard --size 8x6 --square 0.108 --no-service-check image:=/camera/color/image_raw camera:=/camera/color
   - ros:
-      layout: even-horizontal
       panes:
-        - roscore
-        - echo "\nAvailable local packages:" && rospack list | grep -vwE "/opt"
-  - editor:
-      panes:
-        - nvim -c ":CocCommand explorer --preset floating src/"
+        - roslaunch realsense2_camera rs_camera.launch
   - monitor:
       panes:
         - htop
