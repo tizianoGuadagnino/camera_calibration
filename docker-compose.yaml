@@ -35,3 +35,4 @@ services:
       - /run/user/1000/gdm/Xauthority:/home/user/.Xauthority
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      - /dev:/dev:rw
